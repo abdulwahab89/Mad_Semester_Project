@@ -6,6 +6,8 @@ class CustomField extends StatelessWidget {
   final Icon? suffixIcon;
   final bool obscureText;
   final VoidCallback? onPressSuffixIcon;
+  final void Function(String)? onChanged;
+
    final Color color;
    final TextAlign? textAlign;
   final Color? hintcolor;
@@ -26,6 +28,7 @@ class CustomField extends StatelessWidget {
      this.obscureText=false ,
      required this.color,
    this.formFieldValidator,
+    this.onChanged,
      this.textEditingController,
      this.onFieldSubmittedValue,
      super.key});
@@ -33,6 +36,7 @@ class CustomField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: onChanged,
       textAlign: textAlign??TextAlign.start,
       onFieldSubmitted: onFieldSubmittedValue,
       validator: formFieldValidator,

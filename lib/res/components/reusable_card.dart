@@ -24,12 +24,12 @@ class ReusableCard extends StatelessWidget {
            Container(
              decoration: BoxDecoration(
 
-                 image: DecorationImage(image: NetworkImage(url),
-    fit: BoxFit.cover,
+                 image: DecorationImage(image: NetworkImage(url,
+                 ),
 
+    fit: BoxFit.cover,
                )
              ),
-
            ),
            Positioned(
              bottom: -8,

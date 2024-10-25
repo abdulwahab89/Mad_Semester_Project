@@ -44,6 +44,11 @@ dependencies:
   firebase_database: ^11.0.3
   cloud_firestore: ^5.1.0
   fluttertoast: ^8.2.6
+  flutter_year_picker: ^0.0.1
+  animated_rating_stars: ^1.0.1
+  image_picker: ^1.1.2
+  permission_handler: ^11.3.1
+  firebase_storage: ^12.3.4
 
 
 

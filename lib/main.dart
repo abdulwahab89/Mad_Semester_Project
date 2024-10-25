@@ -2,11 +2,12 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:moviepedia/firebase_options.dart';
 import 'package:moviepedia/utils/provider/changeIcon.dart';
+import 'package:moviepedia/utils/provider/starRating.dart';
 import 'package:moviepedia/utils/routes/route.dart';
 import 'package:moviepedia/utils/routes/routeNames.dart';
+import 'package:moviepedia/view%20model/services/PostData/post_data.dart';
 import 'package:moviepedia/view%20model/services/firebase_services/firebase_database/FirebaseDatabaseViewModel.dart';
-
-
+import 'package:moviepedia/view/screens/dashboard_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'view model/services/firebase_services/firebase_authentication/login_services/login_service.dart';
@@ -27,6 +28,11 @@ class MyApp extends StatelessWidget {
 
       ChangeNotifierProvider( create:(context)=>IconVisibility(),
       ),
+        ChangeNotifierProvider( create:(context)=>StarVisibility(),
+        ),
+        ChangeNotifierProvider( create:(context)=>PostData(),
+        ),
+
         ChangeNotifierProvider( create:(context)=>FirebaseDatabaseViewModel(),
         ),
         ChangeNotifierProvider( create:(context)=>LoginService(),
@@ -38,8 +44,10 @@ class MyApp extends StatelessWidget {
       // ),
       child:   const MaterialApp(
 debugShowCheckedModeBanner: false,
-        initialRoute: RouteName.splashScreen,
+        initialRoute: RouteName.dashboardScreen,
         onGenerateRoute: Routes.generateRoute,
+        // initialRoute: RouteName.splashScreen,
+        // onGenerateRoute: Routes.generateRoute,
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moviepedia/Model/Firebase_database_model/Database_Model.dart';
 import 'package:moviepedia/utils/routes/routeNames.dart';
 import 'package:moviepedia/view/screens/dashboard_screen.dart';
 import 'package:moviepedia/view/screens/movie_view.dart';
@@ -18,8 +19,8 @@ class Routes {
       case RouteName.dashboardScreen:
         return MaterialPageRoute(builder: (context) =>  const DashboardScreen());
       case RouteName.movieScreen:
-        final args=settings.arguments as MovieView;
-        return MaterialPageRoute(builder: (context) =>  MovieView(url:args.url.toString(), title: args.title.toString(), coverUrl: args.coverUrl.toString(), movieRating: args.movieRating.toString(), movieYear: args.movieYear.toString(), movieDescription: args.movieDescription.toString(),));
+        final args=settings.arguments as DatabaseModel;
+        return MaterialPageRoute(builder: (context) =>  MovieView(model: args,));
         default:
         return _errorRoute();
     }

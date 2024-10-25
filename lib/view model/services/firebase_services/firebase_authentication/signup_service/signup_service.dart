@@ -9,7 +9,7 @@ class SignupService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   final FirebaseDatabase _ref=FirebaseDatabase.instance;
-  Future<void> signup(BuildContext context,String email, String password,String phoneNo,String userName) async {
+  Future<void> signup(BuildContext context,String email, String password,String userName) async {
     try {
       await _auth.createUserWithEmailAndPassword(
         email: email,
@@ -20,8 +20,6 @@ class SignupService {
 _ref.ref('users').child(value.user!.uid).set({
   'uid':value.user!.uid,
   'email':email,
-  'phno':phoneNo,
-  'userName':phoneNo,
 }).then((value){
   print("Data stored sucessfully");
 }).onError((error,stacktrace){
@@ -29,18 +27,13 @@ _ref.ref('users').child(value.user!.uid).set({
 });
       });
       print('User signed up successfully');
-      // You might want to return some meaningful result or signal success
-    } catch (e) {
-      // Handle FirebaseAuthException
+      } catch (e) {
       if (e is FirebaseAuthException) {
         print('Firebase Auth Exception:');
         print('Code: ${e.code}');
         print('Message: ${e.message}');
-        // Handle specific error cases like 'weak-password', 'email-already-in-use'
-        // You can also throw the exception again to propagate it up if needed
-        rethrow;
+         rethrow;
       } else {
-        // Handle other exceptions
         print('Error occurred while signing up: $e');
         rethrow;
       }

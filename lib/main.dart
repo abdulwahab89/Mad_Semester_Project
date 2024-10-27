@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
       // ),
       child:   const MaterialApp(
 debugShowCheckedModeBanner: false,
-        initialRoute: RouteName.dashboardScreen,
+        initialRoute: RouteName.splashScreen,
         onGenerateRoute: Routes.generateRoute,
         // initialRoute: RouteName.splashScreen,
         // onGenerateRoute: Routes.generateRoute,

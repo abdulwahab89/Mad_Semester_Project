@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:moviepedia/utils/utils.dart';
@@ -73,7 +74,7 @@ class PostData with ChangeNotifier {
       String selectedYear,
       String rating,
       String movieName,
-      MovieCategory? selectedCategory) async {
+      MovieCategory? selectedCategory,BuildContext context) async {
 setLoading(true);
     if (selectedCategory == null || selectedYear.isEmpty) {
       Utils.toastMessage(
@@ -100,7 +101,7 @@ setLoading(true);
         movieCategory: selectedCategory,
       );
       await firebaseDatabaseViewModel.postData(movieData, selectedCategory);
-
+Navigator.pop(context);
       Utils.toastMessage("Movie added successfully");
     }on SocketException {
       Utils.toastMessage("No internet connection. Please check your connection and try again.");

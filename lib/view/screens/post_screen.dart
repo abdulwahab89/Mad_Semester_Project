@@ -11,6 +11,7 @@ import 'package:moviepedia/utils/provider/starRating.dart';
 import 'package:moviepedia/view%20model/services/PostData/post_data.dart';
 import 'package:moviepedia/view%20model/services/firebase_services/firebase_database/FirebaseDatabaseViewModel.dart';
 import 'package:provider/provider.dart';
+import '../../utils/colors.dart';
 import '../../utils/utils.dart';
 
 class PostScreen extends StatefulWidget {
@@ -243,8 +244,8 @@ FirebaseDatabaseViewModel firebaseDatabaseViewModel=FirebaseDatabaseViewModel();
                  return  CustomButton(
                    loading: value.isLoading,
                    title: 'Submit',
-                   onPress: () async=> _formKey.currentState!.validate()?await value.postUserData(selectedImage,descriptionController.text.toString(),selectedYear.toString(),rating.toString(),nameController.text.toString(),selectedCategory ):Utils.toastMessage("Enter missing details"),
-                   color: Colors.black,
+                   onPress: () async=> _formKey.currentState!.validate()?await value.postUserData(selectedImage,descriptionController.text.toString(),selectedYear.toString(),rating.toString(),nameController.text.toString(),selectedCategory,context ):Utils.toastMessage("Enter missing details"),
+                   color:AppColors.blackColor,
                  );
                 }
               ),

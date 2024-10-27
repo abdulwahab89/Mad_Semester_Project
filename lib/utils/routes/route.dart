@@ -3,8 +3,10 @@ import 'package:moviepedia/Model/Firebase_database_model/Database_Model.dart';
 import 'package:moviepedia/utils/routes/routeNames.dart';
 import 'package:moviepedia/view/screens/dashboard_screen.dart';
 import 'package:moviepedia/view/screens/movie_view.dart';
+import 'package:moviepedia/view/screens/post_screen.dart';
 import 'package:moviepedia/view/screens/sign_up.dart';
 
+import '../../view/home_screen.dart';
 import '../../view/screens/login_screen.dart';
 import '../../view/screens/splash_Screen.dart';
 class Routes {
@@ -17,11 +19,16 @@ class Routes {
       case RouteName.splashScreen:
         return MaterialPageRoute(builder: (context) => const SplashScreen());
       case RouteName.dashboardScreen:
-        return MaterialPageRoute(builder: (context) =>  const DashboardScreen());
+        final args=settings.arguments as String;
+        return MaterialPageRoute(builder: (context) =>   DashboardScreen(category: args,));
       case RouteName.movieScreen:
         final args=settings.arguments as DatabaseModel;
         return MaterialPageRoute(builder: (context) =>  MovieView(model: args,));
-        default:
+      case RouteName.homeScreen:
+        return MaterialPageRoute(builder: (context) => const HomeScreen());
+      case RouteName.postScreen:
+        return MaterialPageRoute(builder: (context) => const PostScreen());
+      default:
         return _errorRoute();
     }
   }

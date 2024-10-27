@@ -13,7 +13,7 @@ isLogin(BuildContext context){
     SessionController().userID=user.uid.toString();
     Timer(const Duration(
       seconds: 2
-    ),()=> Navigator.pushReplacementNamed(context,RouteName.dashboardScreen)
+    ),()=> Navigator.pushReplacementNamed(context,RouteName.homeScreen)
     );
     }else{
     Timer(const Duration(

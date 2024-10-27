@@ -26,7 +26,7 @@ class MovieView extends StatelessWidget {
             ),
             ),
             CustomButton(
-        
+        onPress: ()=> Navigator.pop,
               title: 'Back to search',
             height: 50,
               borderRadius: 0,
@@ -112,7 +112,7 @@ class MovieView extends StatelessWidget {
                             fontSize: 10,
                             borderRadius: 25,
                             color: AppColors.backgroundColor,
-                            title: model.movieRating.toString()),
+                            title: "${model.movieRating}/5"),
                         const SizedBox(width: 15,),
                         CustomButton(
                             height: 15,
@@ -201,7 +201,7 @@ class MovieView extends StatelessWidget {
                           fontSize: 12,
                         ),
                       ),
-                      SafeArea(child: Text(model.description.toString(),
+                      SafeArea(child: Text(model.movieReview.toString(),
                         style: const TextStyle(
                           color: AppColors.textColor3,
         

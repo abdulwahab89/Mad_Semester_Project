@@ -48,7 +48,7 @@ class FirebaseDatabaseViewModel with ChangeNotifier {
   Stream<Map<String, List<DatabaseModel>>> getMoviesStream() {
     return ref.onValue.map((event) {
       final data = event.snapshot.value as Map<dynamic, dynamic>?;
-      if (data == null) return {}; // Return empty if there's no data
+      if (data == null) return {};
 
       Map<String, List<DatabaseModel>> moviesByCategory = {};
       data.forEach((category, movies) {

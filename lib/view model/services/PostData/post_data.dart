@@ -74,6 +74,7 @@ class PostData with ChangeNotifier {
       String selectedYear,
       String rating,
       String movieName,
+      String movieReview,
       MovieCategory? selectedCategory,BuildContext context) async {
 setLoading(true);
     if (selectedCategory == null || selectedYear.isEmpty) {
@@ -97,6 +98,7 @@ setLoading(true);
         description: description,
         movieYear: selectedYear,
         movieRating: rating,
+        movieReview: movieReview,
         movieName: movieName,
         movieCategory: selectedCategory,
       );

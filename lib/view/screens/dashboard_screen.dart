@@ -11,7 +11,9 @@ import '../../res/components/reusable_card.dart';
 import '../../utils/routes/routeNames.dart';
 
 class DashboardScreen extends StatefulWidget {
-  const DashboardScreen({super.key});
+  String category;
+   DashboardScreen({required this.category,
+     super.key});
 
   @override
   State<DashboardScreen> createState() => _DashboardScreenState();
@@ -26,14 +28,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
     final Size screenSize = MediaQuery.of(context).size;
     final double screenWidth = screenSize.width;
     final double screenHeight = screenSize.height * 0.15;
-
+    double fontSize=screenWidth * 0.1;
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         clipBehavior: Clip.hardEdge,
         backgroundColor: AppColors.backgroundColor,
         child: const Icon(Icons.add, color: AppColors.textColor4),
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => PostScreen()));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => const PostScreen()));
         },
       ),
       backgroundColor: AppColors.secondaryColor,
@@ -52,7 +54,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               ),
             ),
             SizedBox(height: screenHeight * 0.01),
-            ],
+          ],
         ),
         leading: InkWell(
           onTap: () {
@@ -72,22 +74,22 @@ class _DashboardScreenState extends State<DashboardScreen> {
             return Center(
               child: Text(
                 'Error: ${snapshot.error}',
-                style: TextStyle(color: Colors.red, fontSize: 18),
+                style:  TextStyle(color: Colors.red, fontSize: fontSize),
               ),
             );
           }
 
-          if (!snapshot.hasData || snapshot.data!.isEmpty) {
+          if (!snapshot.hasData || snapshot.data![widget.category]==null  || snapshot.data![widget.category]!.isEmpty) {
             return const Center(
               child: Text(
                 'No movies found',
-                style: TextStyle(color: Colors.white, fontSize: 18),
+                style: TextStyle(color: AppColors.textColor, fontSize: kDefaultFontSize),
               ),
             );
           }
 
-          final moviesByCategory = snapshot.data!;
-          final movieList = moviesByCategory.values.expand((e) => e).toList();
+          final moviesByCategory = snapshot.data![widget.category]!;
+          final movieList = moviesByCategory.toList();
           return GridView.builder(
             itemCount: movieList.length,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -105,7 +107,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 },
                 child: ReusableCard(
                   url: movie.imageUrl ?? '',
-                  title: movie.movieRating ?? 'Unknown', subtitle: movie.movieYear ?? 'Unknown Year',
+                  title: movie.movieName ?? 'Unknown', subtitle: movie.movieYear ?? 'Unknown Year',
 
                 ),
               );

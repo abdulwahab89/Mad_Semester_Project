@@ -7,6 +7,7 @@ import 'package:moviepedia/utils/routes/route.dart';
 import 'package:moviepedia/utils/routes/routeNames.dart';
 import 'package:moviepedia/view%20model/services/PostData/post_data.dart';
 import 'package:moviepedia/view%20model/services/firebase_services/firebase_database/FirebaseDatabaseViewModel.dart';
+import 'package:moviepedia/view/home_screen.dart';
 import 'package:moviepedia/view/screens/dashboard_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -14,7 +15,6 @@ import 'view model/services/firebase_services/firebase_authentication/login_serv
 void main ()async{
 WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(const MyApp());
@@ -44,9 +44,10 @@ class MyApp extends StatelessWidget {
       // ),
       child:   const MaterialApp(
 debugShowCheckedModeBanner: false,
+      // home: DashbordScreen(),
         initialRoute: RouteName.splashScreen,
         onGenerateRoute: Routes.generateRoute,
-        // initialRoute: RouteName.splashScreen,
+        // // initialRoute: RouteName.splashScreen,
         // onGenerateRoute: Routes.generateRoute,
       ),
     );

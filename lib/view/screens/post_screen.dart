@@ -244,7 +244,7 @@ FirebaseDatabaseViewModel firebaseDatabaseViewModel=FirebaseDatabaseViewModel();
                  return  CustomButton(
                    loading: value.isLoading,
                    title: 'Submit',
-                   onPress: () async=> _formKey.currentState!.validate()?await value.postUserData(selectedImage,descriptionController.text.toString(),selectedYear.toString(),rating.toString(),nameController.text.toString(),selectedCategory,context ):Utils.toastMessage("Enter missing details"),
+                   onPress: () async=> _formKey.currentState!.validate()?await value.postUserData(selectedImage,descriptionController.text.toString(),selectedYear.toString(),rating.toString(),nameController.text.toString(),reviewController.text.toString(),selectedCategory,context ):Utils.toastMessage("Enter missing details"),
                    color:AppColors.blackColor,
                  );
                 }

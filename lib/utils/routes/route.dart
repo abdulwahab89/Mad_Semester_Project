@@ -6,7 +6,7 @@ import 'package:moviepedia/view/screens/movie_view.dart';
 import 'package:moviepedia/view/screens/post_screen.dart';
 import 'package:moviepedia/view/screens/sign_up.dart';
 
-import '../../view/home_screen.dart';
+import '../../view/screens/home_screen.dart';
 import '../../view/screens/login_screen.dart';
 import '../../view/screens/splash_Screen.dart';
 class Routes {

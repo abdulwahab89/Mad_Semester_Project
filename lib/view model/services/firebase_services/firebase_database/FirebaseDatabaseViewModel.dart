@@ -10,47 +10,19 @@ import '../../../../utils/utils.dart';
 
 
 class FirebaseDatabaseViewModel with ChangeNotifier {
-  bool _isLoading = false;
-  bool get isLoading => _isLoading;
+
   final DatabaseReference database = FirebaseDatabase.instance.ref();
 
-  setLoading(bool value) {
-    _isLoading = value;
-    notifyListeners();
-  }
-  FirebaseDatabaseViewModel(){
-    fetchMovies();
-  }
-  Map<String, List<DatabaseModel>> moviesByCategory = {};
+
+  Map<dynamic, List<DatabaseModel>> moviesByCategory = {};
   DatabaseReference ref = FirebaseDatabase.instance.ref('movies');
 
-  Future<Map<String, List<DatabaseModel>>> fetchMovies() async {
-    final snapshot = await ref.get();
-
-    if (snapshot.exists) {
-
-      Map<dynamic, dynamic> data = snapshot.value as Map<dynamic, dynamic>;
-      data.forEach((category, movies) {
-        List<DatabaseModel> movieList = [];
-        Map<dynamic, dynamic> moviesMap = movies as Map<dynamic, dynamic>;
-
-        moviesMap.forEach((key, movieData) {
-          movieList.add(DatabaseModel.fromMap(movieData));
-        });
-
-        moviesByCategory[category] = movieList;
-      });
-      return moviesByCategory;
-    } else {
-      throw Exception("No data available");
-    }
-  }
-  Stream<Map<String, List<DatabaseModel>>> getMoviesStream() {
+  Stream<Map<dynamic, List<DatabaseModel>>> getMoviesStream() {
     return ref.onValue.map((event) {
       final data = event.snapshot.value as Map<dynamic, dynamic>?;
       if (data == null) return {};
 
-      Map<String, List<DatabaseModel>> moviesByCategory = {};
+      Map<dynamic, List<DatabaseModel>> moviesByCategory = {};
       data.forEach((category, movies) {
         List<DatabaseModel> movieList = [];
         Map<dynamic, dynamic> moviesMap = movies as Map<dynamic, dynamic>;
@@ -68,14 +40,13 @@ class FirebaseDatabaseViewModel with ChangeNotifier {
 
   Future<void> postData(DatabaseModel movie, MovieCategory category) async {
     try {
-      await database.child('movies').child(category.name).push().set(movie.toJson());
+      await database.child('movies').child(category.name).child(movie.id.toString()).set(movie.toJson());
       print('Movie added successfully under category: $category');
 
     } catch (error) {
 
       print('Failed to add movie: $error');
 
-    }finally{
     }
   }
   Future<String?> uploadImageService(XFile? image) async {

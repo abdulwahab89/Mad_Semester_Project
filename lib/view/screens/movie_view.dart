@@ -26,7 +26,7 @@ class MovieView extends StatelessWidget {
             ),
             ),
             CustomButton(
-        onPress: ()=> Navigator.pop,
+        onPress: ()=> Navigator.pop(context),
               title: 'Back to search',
             height: 50,
               borderRadius: 0,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:moviepedia/res/components/custom_field/custom_field.dart';
 import 'package:moviepedia/utils/colors.dart';
 import 'package:moviepedia/view%20model/services/firebase_services/firebase_authentication/login_services/login_service.dart';
 import 'package:moviepedia/view%20model/services/firebase_services/firebase_database/FirebaseDatabaseViewModel.dart';
@@ -20,8 +19,6 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  final LoginService _loginService = LoginService();
-  final TextEditingController searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -40,13 +37,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
       ),
       backgroundColor: AppColors.secondaryColor,
       appBar: AppBar(
+        foregroundColor: AppColors.backgroundColor,
         centerTitle: true,
         backgroundColor: AppColors.backgroundColor,
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              'Movie List',
+              widget.category.toUpperCase().toString(),
               style: TextStyle(
                 color: AppColors.secondaryColor,
                 fontSize: screenWidth * 0.050,
@@ -56,14 +54,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
             SizedBox(height: screenHeight * 0.01),
           ],
         ),
-        leading: InkWell(
-          onTap: () {
-            _loginService.logOutService(context);
-          },
-          child: const Icon(Icons.exit_to_app_outlined, color: AppColors.secondaryColor),
-        ),
+
       ),
-      body: StreamBuilder<Map<String, List<DatabaseModel>>>(
+      body: StreamBuilder<Map<dynamic, List<DatabaseModel>>>(
         stream: Provider.of<FirebaseDatabaseViewModel>(context).getMoviesStream(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
@@ -74,13 +67,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
             return Center(
               child: Text(
                 'Error: ${snapshot.error}',
-                style:  TextStyle(color: Colors.red, fontSize: fontSize),
+                style:  const TextStyle(color: Colors.red, fontSize: kDefaultFontSize),
               ),
             );
           }
 
           if (!snapshot.hasData || snapshot.data![widget.category]==null  || snapshot.data![widget.category]!.isEmpty) {
-            return const Center(
+            return  const Center(
               child: Text(
                 'No movies found',
                 style: TextStyle(color: AppColors.textColor, fontSize: kDefaultFontSize),
@@ -115,6 +108,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           );
         },
       ),
+
     );
   }
 }

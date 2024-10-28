@@ -16,6 +16,7 @@ class CustomField extends StatelessWidget {
   final FormFieldSetter? onFieldSubmittedValue;
   final TextInputType? textInputType;
   final double? borderSideWidth;
+  final double? boxWidth;
   const CustomField({
      this.textInputType,
      this.textHint,
@@ -31,60 +32,64 @@ class CustomField extends StatelessWidget {
     this.onChanged,
      this.textEditingController,
      this.onFieldSubmittedValue,
+    this.boxWidth,
      super.key});
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      onChanged: onChanged,
-      textAlign: textAlign??TextAlign.start,
-      onFieldSubmitted: onFieldSubmittedValue,
-      validator: formFieldValidator,
-      controller: textEditingController,
-      style:const TextStyle(
-    color: AppColors.textColor,
-      ),
-      obscureText: obscureText,
-      decoration: InputDecoration(
-          hintText: textHint,
-          hintStyle:  TextStyle(
-          color: hintcolor,
-
-          ),
-contentPadding: const EdgeInsets.all(8),
-        prefixIcon:prefixIcon,
-        suffixIcon: SizedBox(
-          height: 1,
-          width: 1,
-          child: InkWell(
-
-              onTap: onPressSuffixIcon,
-              child: suffixIcon),
+    return SizedBox(
+      width:boxWidth ,
+      child: TextFormField(
+        onChanged: onChanged,
+        textAlign: textAlign??TextAlign.start,
+        onFieldSubmitted: onFieldSubmittedValue,
+        validator: formFieldValidator,
+        controller: textEditingController,
+        style:const TextStyle(
+      color: AppColors.textColor,
         ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(
-              width: borderSideWidth??1,
-              color: color, // Border color when not focused
+        obscureText: obscureText,
+        decoration: InputDecoration(
+            hintText: textHint,
+            hintStyle:  TextStyle(
+            color: hintcolor,
+
             ),
+      contentPadding: const EdgeInsets.all(8),
+          prefixIcon:prefixIcon,
+          suffixIcon: SizedBox(
+            height: 1,
+            width: 1,
+            child: InkWell(
+
+                onTap: onPressSuffixIcon,
+                child: suffixIcon),
           ),
-    disabledBorder:OutlineInputBorder(
-      borderSide: BorderSide(
-        color: color,
-      ),
-    ),
-    focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
-        borderSide:  BorderSide(
-        color: color,
-    )),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-        borderSide:  BorderSide(
-          width: 100,
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(
+                width: borderSideWidth??1,
+                color: color, // Border color when not focused
+              ),
+            ),
+      disabledBorder:OutlineInputBorder(
+        borderSide: BorderSide(
           color: color,
-        )
-        )
+        ),
+      ),
+      focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide:  BorderSide(
+          color: color,
+      )),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+          borderSide:  BorderSide(
+            width: 100,
+            color: color,
+          )
+          )
+        ),
       ),
     );
   }

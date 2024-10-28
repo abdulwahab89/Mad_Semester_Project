@@ -21,9 +21,7 @@ class LoginService with ChangeNotifier{
     setLoading(false);
     Navigator.pushReplacementNamed(context,RouteName.homeScreen);
 
-    if (kDebugMode) {
-      print("user login success");
-    }
+
   }).onError((error,stacktrace){
     setLoading(false);
     Utils.toastMessage(error.toString());
@@ -32,9 +30,9 @@ logOutService(BuildContext context) async{
    await _firebaseAuth.signOut().then((value){
      SessionController().userID=null;
      Navigator.pushReplacementNamed(context, RouteName.loginScreen);
-   print("logged out");
+   Utils.toastMessage("User logged out");
    }).onError((error,stacktrace){
-
+Utils.toastMessage(error.toString());
    });
 }
 }

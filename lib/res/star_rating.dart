@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:moviepedia/utils/provider/starRating.dart';
-import 'package:provider/provider.dart';
 class StarRating extends StatefulWidget {
   bool? isSelected;
    StarRating({

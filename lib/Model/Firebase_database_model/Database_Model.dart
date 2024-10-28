@@ -19,7 +19,7 @@ class DatabaseModel {
   String? movieYear;
   String? movieReview;
 
-  // Constructor
+
   DatabaseModel({
     this.id,
     this.imageUrl,

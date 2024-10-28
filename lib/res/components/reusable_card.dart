@@ -17,8 +17,8 @@ class ReusableCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
 
-       width: double.infinity, // Ensure the Stack takes the full width
-       height: 250, // Define a fixed height for the Stack
+       width: double.infinity,
+       height: 250,
        child: Stack(
          children: [
            Container(
@@ -33,8 +33,8 @@ class ReusableCard extends StatelessWidget {
            ),
            Positioned(
              bottom: -8,
-             left: -10, // Position the Card to start from the left
-             right: -10, // Ensure the Card stretches to the right
+             left: -10,
+             right: -10,
              child: SizedBox(
 
                child: Card(

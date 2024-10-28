@@ -31,8 +31,9 @@ Widget? widget;
           child: Text(title.toString().toUpperCase(),
           style: TextStyle(
             color: Colors.white,
-            backgroundColor: Colors.black,
-            fontSize: fontSize*.5,
+            backgroundColor: Colors.black.withOpacity(0.5),
+            fontSize: fontSize*.4,
+            letterSpacing: 1.5,
 
           ),
           )

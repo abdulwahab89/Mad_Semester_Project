@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:moviepedia/res/components/custom_field/custom_field.dart';
 import 'package:moviepedia/utils/colors.dart';
 import 'package:moviepedia/utils/routes/routeNames.dart';
+import 'package:moviepedia/utils/utils.dart';
 import 'package:moviepedia/view%20model/services/firebase_services/firebase_authentication/login_services/login_service.dart';
+import 'package:moviepedia/view%20model/services/validator/validator.dart';
 import 'package:provider/provider.dart';
 
 import '../../res/components/buttons/custom_button.dart';
 import '../../utils/provider/changeIcon.dart';
-import '../../view model/services/email services/email_services.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -33,46 +34,39 @@ class _LoginScreenState extends State<LoginScreen> {
         backgroundColor: Colors.transparent,
       ),
       body: SingleChildScrollView(
-        child: TweenAnimationBuilder(
-          builder: (BuildContext context,double value,Widget? child){
-            return Opacity(
-              opacity: value,
-              child: child,
-            );
-          },
-          tween: Tween<double>(begin: 0,end: 1),
-          duration: const Duration(
-            seconds: 1,
-          ),
-          child: Column(
-              children: [
-              SizedBox(
-              height: screenHeight,
-              ),
-              Center(
-              child: Text("Login",
-              style: TextStyle(
-              fontFamily: 'Pacifico',
-              fontSize: fontSize,
-              color: AppColors.backgroundColor,
-              ),
-              ),
-              ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+            height: screenHeight,
+            ),
+            Center(
+            child: Text("Login",
+            style: TextStyle(
+            fontFamily: 'Pacifico',
+            fontSize: fontSize,
+            color: AppColors.backgroundColor,
+            ),
+            ),
+            ),
 
-              Form(
+            Center(
+              child: Form(
               key: _formkey,
               child:  Column(
               children: [
               Padding(
               padding: const EdgeInsets.all(10),
               child: CustomField(
+                boxWidth: screenWidth*0.9,
               onFieldSubmittedValue: (value){
 
               },
               hintcolor: AppColors.textColor,
               color: AppColors.backgroundColor,
               textEditingController: _emailController,
-              formFieldValidator:EmailValidator.validate,
+              formFieldValidator:Validator.validate,
               prefixIcon: const Icon(
               Icons.email,
               color: AppColors.backgroundColor,
@@ -82,6 +76,8 @@ class _LoginScreenState extends State<LoginScreen> {
               Consumer<IconVisibility>(
               builder: (context,isVisible,child)=>
               CustomField(
+
+                boxWidth: screenWidth*0.9,
               hintcolor: AppColors.textColor,
               obscureText: isVisible.isVisible,
               onPressSuffixIcon: (){
@@ -106,63 +102,57 @@ class _LoginScreenState extends State<LoginScreen> {
               ],
               ),
               ),
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: InkWell(
-                        onTap: (){
-                          const SnackBar snackBar = SnackBar(
-                            content: Text('Coming soon..'),
-                            duration: Duration(seconds: 1),
-                          );
-                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            ),
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: GestureDetector(
+                      onTap: ()=> Utils.toastMessage("Coming soon"),
 
-                        },
-                        child: const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text('Forgotten password?'
-                              ,
-                              style: TextStyle(
-                                color: AppColors.backgroundColor,
-                                decoration: TextDecoration.underline,
-                              )
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(18.0),
-                      child: InkWell(
-                        onTap: (){
-                          Navigator.pushNamed(context, RouteName.signUpScreen);
-                        },
-                        child: const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text(
-                            "Don't have an account? Signup now",
+                      child: const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text('Forgotten password?'
+                            ,
                             style: TextStyle(
-                              fontWeight: FontWeight.bold,
                               color: AppColors.backgroundColor,
-                              decoration:TextDecoration.underline,
-                            ),
+                              decoration: TextDecoration.underline,
+                            )
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(18.0),
+                    child: InkWell(
+                      onTap: (){
+                        Navigator.pushNamed(context, RouteName.signUpScreen);
+                      },
+                      child: const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          "Don't have an account? Signup now",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.backgroundColor,
+                            decoration:TextDecoration.underline,
                           ),
                         ),
                       ),
                     ),
-                    Consumer<LoginService>(builder: (context,provider,child)=>
-                        CustomButton(
-                          loading: provider.loading,
-                          onPress: (){
-                            if(_formkey.currentState!.validate()){
-                              provider.loginService(context,_emailController.text.toString(), _passwordController.text.toString());
-                            }
-                          },
-                          title: 'Login',
-                          color: AppColors.backgroundColor,
-                        ),
-                    ),
-                  ],
-                ),
-        ),
+                  ),
+                  Consumer<LoginService>(builder: (context,provider,child)=>
+                      CustomButton(
+                        loading: provider.loading,
+                        onPress: (){
+                          if(_formkey.currentState!.validate()){
+                            provider.loginService(context,_emailController.text.toString(), _passwordController.text.toString());
+                          }
+                        },
+                        title: 'Login',
+                        color: AppColors.backgroundColor,
+                      ),
+                  ),
+                ],
+              ),
             )
 
 

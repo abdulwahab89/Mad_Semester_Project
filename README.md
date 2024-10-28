@@ -54,6 +54,7 @@ o	Resolution: Utilized Firebase’s real-time synchronization, ensuring that new
 o	Resolution: Used Flutter’s built-in widgets and layout options to make the app adaptable and visually consistent across devices.
 •	Issue: Categorizing the data based on movie categories.
 o	Resolution: Implement the use of dynamic maps to store each value of data into a specified key which is the category of the movie.
+
 **9. Conclusion**
 The MoviePedia app successfully achieved its primary goals, providing users with a comprehensive, user-friendly, and visually appealing platform for exploring movies. The integration of trailers and real-time data significantly enhances user engagement, while the MVVM architecture and Provider state management ensure that the app is scalable and maintainable.
 

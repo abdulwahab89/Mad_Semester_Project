@@ -67,15 +67,15 @@ The Moviepedia app was built using the following development stages:
 - **Issue**: Categorizing the data based on movie categories.  
   - **Resolution**: Implemented dynamic maps to store each value of data into a specified key which is the category of the movie.  
 
-**10. Dependencies used:
+### 10. Dependencies used:
 The dependecies used were following:
-*firebase_core
-*firebase_storage
-*firebase_database
-*cloud_firestore
-*fluttertoast
-*image_picker
-*permission_handler
+#### *firebase_core
+#### *firebase_storage
+#### *firebase_database
+#### *cloud_firestore
+#### *fluttertoast
+#### *image_picker
+#### *permission_handler
 
 **11. Conclusion**  
 The MoviePedia app successfully achieved its primary goals, providing users with a comprehensive, user-friendly, and visually appealing platform for exploring movies. The integration of trailers and real-time data significantly enhances user engagement, while the MVVM architecture and Provider state management ensure that the app is scalable and maintainable.

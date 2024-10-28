@@ -1,6 +1,6 @@
 # Project Report: MoviePedia App
 
-# Project name: MoviePedia 
+# Project Name: MoviePedia 
 ## Presented by: 21SW89, 21SW108, 21SW152
 
 ## Table of Contents

@@ -44,10 +44,12 @@ FirebaseDatabaseViewModel firebaseDatabaseViewModel=FirebaseDatabaseViewModel();
     double fontSize=screenWidth * 0.1;
     return  Scaffold(
       appBar: AppBar(
-        title: const Text('Post Movie Review'),
+        foregroundColor: AppColors.secondaryColor,
+        title: const Text('Post Movie Review',
+        ),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppColors.backgroundColor,
       ),
       body: SingleChildScrollView(
         child: Form(
@@ -172,7 +174,7 @@ FirebaseDatabaseViewModel firebaseDatabaseViewModel=FirebaseDatabaseViewModel();
              height: screenHeight*0.5,
              width: screenWidth*1,
              decoration: const BoxDecoration(
-               color: Colors.black,
+               color: AppColors.backgroundColor,
              ),
              child: Row(
                mainAxisAlignment: MainAxisAlignment.center,
@@ -245,7 +247,7 @@ FirebaseDatabaseViewModel firebaseDatabaseViewModel=FirebaseDatabaseViewModel();
                    loading: value.isLoading,
                    title: 'Submit',
                    onPress: () async=> _formKey.currentState!.validate()?await value.postUserData(selectedImage,descriptionController.text.toString(),selectedYear.toString(),rating.toString(),nameController.text.toString(),reviewController.text.toString(),selectedCategory,context ):Utils.toastMessage("Enter missing details"),
-                   color:AppColors.blackColor,
+                   color:AppColors.backgroundColor,
                  );
                 }
               ),

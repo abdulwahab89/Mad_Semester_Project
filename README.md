@@ -13,10 +13,12 @@
 - [Data Storage](#data-storage)
 - [Development Process](#development-process)
 - [Issues and Bugs Encountered](#issues-and-bugs-encountered)
+- [Dependencies Used](#dependencies-used)
 - [Conclusion](#conclusion)
 - [Contributing](#contributing)
 - [License](#license)
 
+---
 ---
 
 **1. Introduction**  

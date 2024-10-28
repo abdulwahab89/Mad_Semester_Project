@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/6f205613-d9ed-40de-b23f-6f677b133ada)Project Report: MoviePedia App
+# Project Report: MoviePedia App
 
 # Project name: MoviePedia 
 ## Presented by: 21SW89, 21SW108, 21SW152
@@ -23,13 +23,18 @@ Moviepedia was developed as a social platform for movie enthusiasts to not only 
 4.	Session Management: The app keeps tracks of user-session using Session Controller to manage the login and logout session of the user.
 **SCREENSHOTS:**
 Device name: Xiaomi 
+
  ![image](https://github.com/user-attachments/assets/49afaa12-50cc-4758-8a5a-a4733f6705d4)
 
 
 Device Name: OPPO F11
+
+
  ![image](https://github.com/user-attachments/assets/1ad6b208-6b49-41e4-80c3-7827f36f6ff7)
 
 WEB (Chrome): 
+
+
  ![image](https://github.com/user-attachments/assets/552238c5-a00d-4483-8469-44f2a7eeabfc)
 
 6.	Data Storage 

@@ -63,7 +63,7 @@ The Moviepedia app was built using the following development stages:
 
 **9. Issues and Bugs Encountered**  
 - **Issue**: Managing real-time updates for user reviews without performance slowdowns.  
-  - **Resolution**: Utilized Firebase’s real-time synchronization, ensuring that new reviews are promptly visible to all users without delay.  
+  - **Resolution**: Utilized Firebase’s real-time synchronization and StreamBuilder class of Flutter , ensuring that new reviews are promptly visible to all users without delay.  
 - **Issue**: Ensuring the app’s responsiveness across different screen sizes.  
   - **Resolution**: Used Flutter’s built-in widgets and layout options to make the app adaptable and visually consistent across devices.  
 - **Issue**: Categorizing the data based on movie categories.  

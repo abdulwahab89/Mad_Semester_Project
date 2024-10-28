@@ -84,5 +84,3 @@ The MoviePedia app successfully achieved its primary goals, providing users with
 **12. Contributing**  
 Everyone is welcome to contribute to MoviePedia! Contributions should follow good coding practices, with attention to code readability, efficient use of resources, and thorough documentation. Please ensure that changes are thoroughly tested, especially when impacting the core features or UI components, and adhere to the MVVM architecture used throughout the app.
 
----
-

@@ -3,6 +3,13 @@
 # Project name: MoviePedia 
 ## Presented by: 21SW89, 21SW108, 21SW152
 
+ ## Table of Contents
+- [Introduction](#Introduction)
+- [Technical Specifications](#Technical Specifications)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+
 **1. Introduction**
 The Moviepedia app is a mobile application designed to provide users with detailed information about movies. This includes features such as viewing movie trailers, reading overviews, and exploring additional information related to various movies. The app was developed using the Flutter framework to ensure a smooth, cross-platform experience on both Android and iOS devices.
 **2. Real World Problem Identification**
@@ -10,7 +17,7 @@ With limited platforms that combine detailed movie information with a social com
 **3. Proposed Solution**
 Moviepedia was developed as a social platform for movie enthusiasts to not only find information about movies but also share their reviews and opinions. By using Firebase as the central data storage, the app allows users to post, view, and engage with reviews, fostering a social media-like experience within a movie-centric environment.
 
-**4. Technical Specifications**
+# **4. Technical Specifications**
 •	Framework: Flutter
 •	Backend: Firebase for Data Storage
 •	Languages: Dart (for Flutter)

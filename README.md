@@ -69,7 +69,7 @@ The Moviepedia app was built using the following development stages:
 - **Issue**: Categorizing the data based on movie categories.  
   - **Resolution**: Implemented dynamic maps to store each value of data into a specified key which is the category of the movie.  
 
-### 10. Dependencies used:
+### 10. Dependencies Used:
 The dependecies used were following:
 #### *firebase_core
 #### *firebase_storage

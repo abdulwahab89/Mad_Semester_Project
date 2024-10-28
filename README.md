@@ -1,7 +1,3 @@
-Here's an updated version of your README with a fixed table of contents and an added "Contributing" section.
-
----
-
 # Project Report: MoviePedia App
 
 # Project name: MoviePedia 

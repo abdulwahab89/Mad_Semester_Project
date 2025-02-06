@@ -1,1 +1,1 @@
-{"flutter":{"platforms":{"android":{"default":{"projectId":"movie-review-app-38f57","appId":"1:1094096883225:android:5a0d56a5d2fa82383ba488","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"movie-review-app-38f57","configurations":{"android":"1:1094096883225:android:5a0d56a5d2fa82383ba488","ios":"1:1094096883225:ios:e6ecbecaaed1c4ea3ba488","macos":"1:1094096883225:ios:e6ecbecaaed1c4ea3ba488","web":"1:1094096883225:web:a4f3833632f4d27e3ba488","windows":"1:1094096883225:web:422814272c18877e3ba488"}}}}}}
+//FIREBASE CONFIG HERE

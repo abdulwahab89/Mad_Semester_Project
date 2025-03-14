@@ -8,6 +8,7 @@ import 'package:moviepedia/view/screens/sign_up.dart';
 
 import '../../view/screens/home_screen.dart';
 import '../../view/screens/login_screen.dart';
+import '../../view/screens/navigation_screen.dart';
 import '../../view/screens/splash_Screen.dart';
 class Routes {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -24,8 +25,8 @@ class Routes {
       case RouteName.movieScreen:
         final args=settings.arguments as DatabaseModel;
         return MaterialPageRoute(builder: (context) =>  MovieView(model: args,));
-      case RouteName.homeScreen:
-        return MaterialPageRoute(builder: (context) => const HomeScreen());
+      case RouteName.navigationScreen:
+        return MaterialPageRoute(builder: (context) => const NavigationScreen());
       case RouteName.postScreen:
         return MaterialPageRoute(builder: (context) => const PostScreen());
       default:

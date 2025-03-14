@@ -7,7 +7,6 @@ class StarVisibility with ChangeNotifier {
 int count=0;
   List<bool> get isVisible => _isVisible;
 
-  // Toggle visibility for a specific star
   void toggleVisibility(int index) {
     if (index >= 0 && index < _isVisible.length) {
       _isVisible[index] = !_isVisible[index];

@@ -3,6 +3,7 @@ import 'package:moviepedia/utils/colors.dart';
 class CustomButton extends StatefulWidget {
 String title;
 Color? color;
+Color? textColor;
 bool loading;
 final VoidCallback? onPress;
 double? height;
@@ -13,6 +14,7 @@ IconData? icon;
    CustomButton({
      this.height,
      this.width,
+     this.textColor,
      this.icon,
      this.fontSize,
      this.borderRadius,
@@ -31,11 +33,14 @@ class _CustomButtonState extends State<CustomButton> {
     return InkWell(
       onTap: widget.loading?null:widget.onPress,
       child: Container(
-        height: widget.height??40,
-      width: widget.width?? 200,
+        height: widget.height,
+      width: widget.width,
       decoration: BoxDecoration(
         color: widget.color,
-      borderRadius: BorderRadius.circular(widget.borderRadius??25),
+     border: Border.all(
+       color: widget.color==Colors.transparent?Colors.white:widget.color!,
+     ),
+        borderRadius: BorderRadius.circular(widget.borderRadius??25),
       ),
       child: widget.loading? const Center(child: CircularProgressIndicator(
         color: Colors.white,
@@ -46,14 +51,16 @@ class _CustomButtonState extends State<CustomButton> {
     widget.icon != null? Padding(
       padding: const EdgeInsets.only(right: 10),
       child: Icon (widget.icon,
-      color: AppColors.secondaryColor,
+        size: kDefaultFontSize,
+        color: Colors.white,
        ),
     ):const SizedBox(),
 
             Center(
               child: Text(widget.title.toString(),
                 style:  TextStyle(
-                  color: AppColors.secondaryColor,
+                  fontWeight: FontWeight.w500,
+                  color: widget.textColor,
                 fontSize:widget.fontSize??19,
                 ),
               ),

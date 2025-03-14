@@ -11,8 +11,8 @@ import '../../utils/routes/routeNames.dart';
 
 class DashboardScreen extends StatefulWidget {
   String category;
-   DashboardScreen({required this.category,
-     super.key});
+  DashboardScreen({required this.category,
+    super.key});
 
   @override
   State<DashboardScreen> createState() => _DashboardScreenState();
@@ -35,7 +35,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
           Navigator.push(context, MaterialPageRoute(builder: (context) => const PostScreen()));
         },
       ),
-      backgroundColor: AppColors.secondaryColor,
       appBar: AppBar(
         foregroundColor: AppColors.backgroundColor,
         centerTitle: true,
@@ -46,7 +45,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
             Text(
               widget.category.toUpperCase().toString(),
               style: TextStyle(
-                color: AppColors.secondaryColor,
                 fontSize: screenWidth * 0.050,
                 fontWeight: FontWeight.bold,
               ),

@@ -19,7 +19,7 @@ class LoginService with ChangeNotifier{
   await _firebaseAuth.signInWithEmailAndPassword(email: email, password: password).then((value){
     SessionController().userID=value.user!.uid;
     setLoading(false);
-    Navigator.pushReplacementNamed(context,RouteName.homeScreen);
+    Navigator.pushReplacementNamed(context,RouteName.navigationScreen);
 
 
   }).onError((error,stacktrace){

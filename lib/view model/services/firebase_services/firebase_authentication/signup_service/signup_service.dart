@@ -22,9 +22,10 @@ class SignupService with ChangeNotifier{
         email: email,
         password: password,
       ).then((value){
+
         Utils.toastMessage("User signed up");
         SessionController().userID=value.user!.uid.toString();
-        Navigator.pushReplacementNamed(context,RouteName.homeScreen);
+        Navigator.pushReplacementNamed(context,RouteName.navigationScreen);
 _ref.ref('users').child(value.user!.uid).set({
   'uid':value.user!.uid,
   'email':email,

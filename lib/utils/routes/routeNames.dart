@@ -5,6 +5,5 @@ class RouteName{
   static const String dashboardScreen="dashboardScreen";
   static const String movieScreen="movieScreen";
   static const String postScreen="postScreen";
-  static const String homeScreen="homeScreen";
-
+  static const String navigationScreen="navigationScreen";
 }

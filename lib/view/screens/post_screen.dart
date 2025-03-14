@@ -44,7 +44,6 @@ FirebaseDatabaseViewModel firebaseDatabaseViewModel=FirebaseDatabaseViewModel();
     double fontSize=screenWidth * 0.1;
     return  Scaffold(
       appBar: AppBar(
-        foregroundColor: AppColors.secondaryColor,
         title: const Text('Post Movie Review',
         ),
         centerTitle: true,

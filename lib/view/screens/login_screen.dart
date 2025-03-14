@@ -26,7 +26,6 @@ class _LoginScreenState extends State<LoginScreen> {
     double fontSize=screenWidth * 0.09;
     double screenHeight=screenSize.height * 0.15;
     return  Scaffold(
-      backgroundColor: AppColors.secondaryColor,
       appBar: AppBar(
 
         automaticallyImplyLeading: false,

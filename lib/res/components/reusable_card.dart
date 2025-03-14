@@ -16,9 +16,8 @@ class ReusableCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-
-       width: double.infinity,
-       height: 250,
+      width: 150,
+       height:150,
        child: Stack(
          children: [
            Container(
@@ -43,7 +42,6 @@ class ReusableCard extends StatelessWidget {
                    title: Text(title,
                   style: const TextStyle(
                     fontSize: 10,
-                    color: AppColors.secondaryColor,
                   ),
                    ),
                    subtitle: Text(subtitle,

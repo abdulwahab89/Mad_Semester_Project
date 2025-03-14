@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:moviepedia/firebase_options.dart';
+import 'package:moviepedia/utils/colors.dart';
 import 'package:moviepedia/utils/provider/changeIcon.dart';
 import 'package:moviepedia/utils/provider/starRating.dart';
 import 'package:moviepedia/utils/routes/route.dart';
@@ -43,7 +44,20 @@ class MyApp extends StatelessWidget {
         ),
       ],
       // ),
-      child:   const MaterialApp(
+      child:    MaterialApp(
+        theme: ThemeData(
+            bottomNavigationBarTheme:  BottomNavigationBarThemeData(
+                type: BottomNavigationBarType.fixed,
+                backgroundColor: AppColors.primaryColor.withOpacity(0.5),
+                selectedItemColor: Colors.white,
+                
+                unselectedItemColor: AppColors.primaryColor,
+            ),
+            scaffoldBackgroundColor: AppColors.backgroundColor,
+          appBarTheme: const AppBarTheme(
+            color: Colors.transparent,
+          )
+        ),
 debugShowCheckedModeBanner: false,
         initialRoute: RouteName.splashScreen,
         onGenerateRoute: Routes.generateRoute,

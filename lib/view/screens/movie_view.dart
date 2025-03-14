@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:moviepedia/Model/Firebase_database_model/Database_Model.dart';
 import 'package:moviepedia/res/components/buttons/custom_button.dart';
@@ -9,7 +10,11 @@ class MovieView extends StatelessWidget {
     super.key});
   @override
   Widget build(BuildContext context) {
-    print(model.movieName);
+    Size screenSize=MediaQuery.of(context).size;
+    double screenWidth=screenSize.width;
+    double screenHeight=screenSize.height * 0.15;
+
+    double fontSize=screenWidth * 0.1;
 
     return   Scaffold(
       body: SingleChildScrollView(
@@ -67,14 +72,16 @@ class MovieView extends StatelessWidget {
                         ),
                         ),
                       ),
-                      Text(model.movieName.toString(),
-                      style: const TextStyle(
-                        fontSize: 20,
-                   fontWeight: FontWeight.bold,
-                        letterSpacing: 1,
+                      AutoSizeText(
+                        model.movieName.toString(),
+                        minFontSize: 10,
+                        maxFontSize: fontSize,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                      ),
-                       const SizedBox(
+                      const SizedBox(
                          height: 20,
                        ),
                        Padding(
@@ -84,7 +91,6 @@ class MovieView extends StatelessWidget {
                             text: 'POPULARITY',
                             style: TextStyle(
                               fontSize: 12,
-        
                               fontWeight: FontWeight.bold,
                               color: AppColors.textColor2,
                             )
